@@ -41,7 +41,7 @@ The logo is served from `public/logo.jpeg` and is used in the preloader, navbar,
 Edit `src/config/site.js` and set `whatsappNumber` to country code + number with no plus sign or spaces:
 
 ```js
-whatsappNumber: "917066569822",
+whatsappNumber: "0000000000",
 ```
 
 All Enquire Now buttons, forms and CTAs read from that single value.
