@@ -197,6 +197,39 @@ export function IconMinus({ size = 18 }) {
   );
 }
 
+export function IconRupee({ size = 22 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M7 4h10M7 9h10M15.5 4c0 3.5-2.4 5-5.5 5h-3l8 10" {...stroke} />
+    </svg>
+  );
+}
+
+export function IconQuote({ size = 22 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M9 6c-3 1.4-4.5 3.9-4.5 7.3V18h5.4v-5.2H6.6c0-2.2.8-3.7 2.4-4.6L9 6Zm10 0c-3 1.4-4.5 3.9-4.5 7.3V18H20v-5.2h-3.4c0-2.2.8-3.7 2.4-4.6L19 6Z"
+        {...stroke}
+      />
+    </svg>
+  );
+}
+
+const BADGE_ICON_MAP = {
+  shield: IconShield,
+  rupee: IconRupee,
+  tool: IconTool,
+  check: IconCheck,
+  clock: IconClock,
+  sun: IconSun,
+};
+
+export function BadgeIcon({ name, size = 20 }) {
+  const Icon = BADGE_ICON_MAP[name] ?? IconCheck;
+  return <Icon size={size} />;
+}
+
 const FEATURED_ICON_MAP = {
   home: IconHome,
   building: IconBuilding,

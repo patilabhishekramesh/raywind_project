@@ -1,6 +1,7 @@
 import { STATS } from "../data/content.js";
 import { useCountUp } from "../hooks/useCountUp.js";
 import { useInView } from "../hooks/useInView.js";
+import { BadgeIcon } from "./Icons.jsx";
 
 function StatItem({ item, active }) {
   const counted = useCountUp(typeof item.value === "number" ? item.value : 0, active);
@@ -8,6 +9,9 @@ function StatItem({ item, active }) {
 
   return (
     <div className="stat">
+      <span className="stat__icon" aria-hidden="true">
+        <BadgeIcon name={item.icon} size={18} />
+      </span>
       <p className="stat__value">{display}</p>
       <p className="stat__label">{item.label}</p>
     </div>

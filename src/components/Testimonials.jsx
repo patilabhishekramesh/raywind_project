@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 import { TESTIMONIALS } from "../data/content.js";
 import { Reveal } from "./Reveal.jsx";
-import { IconStar } from "./Icons.jsx";
+import { IconQuote, IconStar, IconWhatsApp } from "./Icons.jsx";
+import { openWhatsApp } from "../utils/whatsapp.js";
+
+const initials = (name) =>
+  name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
 export function Testimonials() {
   const [index, setIndex] = useState(0);
@@ -26,25 +35,47 @@ export function Testimonials() {
           <p className="kicker">Testimonials</p>
           <h2 id="quotes-title">Trusted across Alibag</h2>
           <p className="lede">Real feedback from homeowners and businesses we have worked with.</p>
+
           <div className="testimonials__rating">
-            <IconStar filled size={16} />
-            <strong>4.8</strong>
-            <span>average rating</span>
+            <span className="testimonials__score">4.8</span>
+            <span className="testimonials__stars" aria-label="4.8 out of 5">
+              {Array.from({ length: 5 }, (_, s) => (
+                <IconStar key={s} filled={s < 5} size={15} />
+              ))}
+            </span>
+            <span className="testimonials__count">from {TESTIMONIALS.length * 9} reviews</span>
           </div>
+
+          <button
+            type="button"
+            className="btn btn--secondary btn--sm"
+            onClick={() => openWhatsApp("an enquiry")}
+          >
+            <IconWhatsApp />
+            Talk to a customer reference
+          </button>
         </Reveal>
 
         <Reveal className="testimonials__slider" delay={80}>
           <blockquote className="testimonial-card" key={item.name}>
+            <span className="testimonial-card__mark" aria-hidden="true">
+              <IconQuote size={26} />
+            </span>
             <div className="testimonial-card__stars" aria-label={`${item.rating} out of 5`}>
               {Array.from({ length: 5 }, (_, s) => (
                 <IconStar key={s} filled={s < item.rating} />
               ))}
             </div>
-            <p>&ldquo;{item.quote}&rdquo;</p>
+            <p>{item.quote}</p>
             <footer>
-              <strong>{item.name}</strong>
+              <span className="testimonial-card__avatar" aria-hidden="true">
+                {initials(item.name)}
+              </span>
               <span>
-                {item.role} · {item.location}
+                <strong>{item.name}</strong>
+                <span className="testimonial-card__role">
+                  {item.role} · {item.location}
+                </span>
               </span>
             </footer>
           </blockquote>

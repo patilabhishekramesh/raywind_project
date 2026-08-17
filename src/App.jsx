@@ -6,7 +6,9 @@ import { Hero } from "./components/Hero.jsx";
 import { Stats } from "./components/Stats.jsx";
 import { About } from "./components/About.jsx";
 import { Services } from "./components/Services.jsx";
+import { HomePackages } from "./components/HomePackages.jsx";
 import { SolarSolutions } from "./components/SolarSolutions.jsx";
+import { SubsidyCalculator } from "./components/SubsidyCalculator.jsx";
 import { Process } from "./components/Process.jsx";
 import { Projects } from "./components/Projects.jsx";
 import { WhyChooseUs } from "./components/WhyChooseUs.jsx";
@@ -38,6 +40,8 @@ export default function App() {
         <Stats />
         <About />
         <Services />
+        <SubsidyCalculator />
+        <HomePackages />
         <SolarSolutions />
         <Process />
         <Projects />

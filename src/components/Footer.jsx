@@ -1,6 +1,7 @@
 import { BrandMark } from "./BrandMark.jsx";
 import { NAV_LINKS, SITE } from "../config/site.js";
 import { openWhatsApp } from "../utils/whatsapp.js";
+import { IconArrow, IconClock, IconMail, IconPhone, IconPin, IconWhatsApp } from "./Icons.jsx";
 
 const FOOTER_SERVICES = [
   { label: "On-Grid Solar", service: "On-Grid Solar" },
@@ -19,6 +20,14 @@ export function Footer() {
         <div className="footer__brand">
           <BrandMark light />
           <p>Empowering your world with solar, wind and electrical innovation across Alibag.</p>
+          <button
+            type="button"
+            className="btn btn--wa btn--sm"
+            onClick={() => openWhatsApp("a free solar consultation")}
+          >
+            <IconWhatsApp />
+            Free consultation
+          </button>
         </div>
 
         <div>
@@ -50,16 +59,36 @@ export function Footer() {
         <div>
           <h2>Location &amp; Contact</h2>
           <ul className="footer__contact">
-            <li>{SITE.address}</li>
             <li>
+              <IconPin size={15} />
+              {SITE.address}
+            </li>
+            <li>
+              <IconPhone size={15} />
               <a href={SITE.phoneHref}>{SITE.phone}</a>
             </li>
             <li>
+              <IconMail size={15} />
               <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+            </li>
+            <li>
+              <IconClock size={15} />
+              {SITE.hours}
             </li>
           </ul>
         </div>
       </div>
+
+      <div className="wrap">
+        <div className="footer__strip">
+          <p>Check what the government subsidy brings your rooftop system down to.</p>
+          <a className="btn btn--white btn--sm" href="#subsidy">
+            Open subsidy calculator
+            <IconArrow />
+          </a>
+        </div>
+      </div>
+
       <div className="footer__base wrap">
         <p>
           © {year} {SITE.legalName}. All rights reserved.

@@ -1,14 +1,18 @@
 import { useMemo, useState } from "react";
 import { PROJECTS } from "../data/content.js";
 import { Reveal } from "./Reveal.jsx";
-import { IconArrow } from "./Icons.jsx";
+import { IconArrow, IconPin } from "./Icons.jsx";
 import { asset } from "../utils/asset.js";
+import { openWhatsApp } from "../utils/whatsapp.js";
 
 export function Projects() {
   const [filter, setFilter] = useState("All");
   const filters = ["All", "Residential", "Commercial", "Industrial", "Solar", "Wind"];
   const items = useMemo(
-    () => (filter === "All" ? PROJECTS.slice(0, 3) : PROJECTS.filter((p) => p.tags.includes(filter)).slice(0, 3)),
+    () =>
+      filter === "All"
+        ? PROJECTS.slice(0, 3)
+        : PROJECTS.filter((p) => p.tags.includes(filter)).slice(0, 3),
     [filter]
   );
 
@@ -18,12 +22,16 @@ export function Projects() {
         <Reveal className="section__head section__head--row">
           <div>
             <p className="kicker">Projects</p>
-            <h2>Recent work</h2>
+            <h2>Recent work across Maharashtra</h2>
           </div>
-          <a className="link-arrow" href="#contact">
+          <button
+            type="button"
+            className="btn btn--secondary btn--sm"
+            onClick={() => openWhatsApp("a free consultation")}
+          >
             Start a project
             <IconArrow />
-          </a>
+          </button>
         </Reveal>
 
         <div className="tabs tabs--soft" role="tablist" aria-label="Project categories">
@@ -46,13 +54,34 @@ export function Projects() {
             <Reveal className="card-cell" key={project.name} delay={i * 60}>
               <article className="pcard">
                 <div className="pcard__img">
-                  <img src={asset(project.image)} alt={project.imageAlt} width={800} height={560} loading="lazy" />
-                  <span className="pcard__tag">2026</span>
+                  <img
+                    src={asset(project.image)}
+                    alt={project.imageAlt}
+                    width={800}
+                    height={560}
+                    loading="lazy"
+                  />
+                  <span className="pcard__capacity">{project.capacity}</span>
                 </div>
                 <div className="pcard__body">
-                  <h3>{project.name}</h3>
-                  <p>{project.location}</p>
                   <span className="pcard__type">{project.type}</span>
+                  <h3>{project.name}</h3>
+                  <p className="pcard__desc">{project.description}</p>
+                  <div className="pcard__meta">
+                    <span>
+                      <IconPin size={15} />
+                      {project.location}
+                    </span>
+                    <span className="pcard__metric">{project.metric}</span>
+                  </div>
+                  <button
+                    type="button"
+                    className="pcard__cta"
+                    onClick={() => openWhatsApp(`a project similar to ${project.name}`)}
+                  >
+                    Discuss a similar project
+                    <IconArrow />
+                  </button>
                 </div>
               </article>
             </Reveal>

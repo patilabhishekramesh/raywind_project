@@ -1,5 +1,5 @@
 import { SITE } from "../config/site.js";
-import { IconArrow, IconWhatsApp } from "./Icons.jsx";
+import { IconArrow, IconCheck, IconWhatsApp } from "./Icons.jsx";
 import { openWhatsApp } from "../utils/whatsapp.js";
 import { asset } from "../utils/asset.js";
 
@@ -8,6 +8,11 @@ export function Hero() {
     <section id="home" className="hero">
       <div className="wrap hero__grid">
         <div className="hero__copy">
+          <a className="hero__badge" href="#subsidy">
+            <span>New</span>
+            Government subsidy up to &#8377;78,000
+            <IconArrow size={14} />
+          </a>
           <p className="hero__eyebrow">{SITE.taglineSub}</p>
           <h1>
             Reliable solar for{" "}
@@ -26,10 +31,22 @@ export function Hero() {
               Get started
               <IconArrow />
             </button>
-            <a className="btn btn--secondary" href="#services">
-              View services
+            <a className="btn btn--secondary" href="#packages">
+              See 2, 3 &amp; 5 kW prices
             </a>
           </div>
+
+          <ul className="hero__trust">
+            <li>
+              <IconCheck size={15} />
+              Subsidy paperwork handled
+            </li>
+            <li>
+              <IconCheck size={15} />
+              100+ projects in Maharashtra
+            </li>
+          </ul>
+
           <button
             type="button"
             className="hero__wa"

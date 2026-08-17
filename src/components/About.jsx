@@ -51,8 +51,8 @@ export function About() {
             maintenance, one team handles the full lifecycle of your system.
           </p>
           <div className="about__counters">
-            <Counter value={STATS[1].value} suffix="+" label={STATS[1].label} />
-            <Counter value={STATS[0].value} suffix="+" label="Installations" />
+            <Counter value={STATS[0].value} suffix="+" label={STATS[0].label} />
+            <Counter value={25} suffix=" yr" label="Panel warranty" />
           </div>
           <button
             type="button"

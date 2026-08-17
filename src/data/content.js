@@ -39,10 +39,10 @@ export const FEATURED_SERVICES = [
 ];
 
 export const STATS = [
-  { value: 100, suffix: "+", label: "Projects Delivered" },
-  { value: 5, suffix: "+", label: "Years Experience" },
-  { value: "24/7", suffix: "", label: "Support Coverage", numeric: false },
-  { value: 100, suffix: "%", label: "Customer Focus" },
+  { value: 100, suffix: "+", label: "Projects in Maharashtra", icon: "check" },
+  { value: "\u20B978,000", suffix: "", label: "Max rooftop subsidy", numeric: false, icon: "rupee" },
+  { value: 25, suffix: " yr", label: "Panel performance warranty", icon: "shield" },
+  { value: "24/7", suffix: "", label: "Service & support", numeric: false, icon: "clock" },
 ];
 
 export const ABOUT_POINTS = [
@@ -352,14 +352,26 @@ export const WHY_US = [
   {
     title: "Quality Components",
     text: "Modules, inverters and protection devices selected for Indian heat, dust and voltage conditions.",
+    icon: "shield",
+    highlight: "Tier-1 modules",
+  },
+  {
+    title: "Subsidy Handled For You",
+    text: "Registration on the national portal, DISCOM paperwork and net-meter liaison are part of the job, not your problem.",
+    icon: "rupee",
+    highlight: "Up to \u20B978,000",
   },
   {
     title: "Professional Installation",
     text: "Structure, cabling and commissioning done to drawing — not improvised on the roof.",
+    icon: "tool",
+    highlight: "Documented handover",
   },
   {
     title: "Experienced Team",
     text: "Engineers and technicians who have delivered residential, commercial and industrial work.",
+    icon: "check",
+    highlight: "100+ projects",
   },
   {
     title: "Transparent Pricing",
@@ -422,7 +434,9 @@ export const PROJECT_FILTERS = [
 
 export const PROJECTS = [
   {
-    name: "8 kW Rooftop Plant",
+    name: "Bungalow Rooftop Plant",
+    capacity: "8 kW",
+    metric: "~960 units / month",
     location: "Alibag Town",
     type: "Residential",
     tags: ["Residential", "Solar"],
@@ -431,7 +445,9 @@ export const PROJECTS = [
     imageAlt: "Residential rooftop solar installation in progress",
   },
   {
-    name: "120 kW Commercial Roof",
+    name: "Campus Services Block",
+    capacity: "120 kW",
+    metric: "~14,400 units / month",
     location: "Nagaon, Alibag",
     type: "Commercial",
     tags: ["Commercial", "Solar"],
@@ -440,7 +456,9 @@ export const PROJECTS = [
     imageAlt: "Commercial rooftop covered with solar panels at golden hour",
   },
   {
-    name: "500 kW Industrial Array",
+    name: "Machine Shop Array",
+    capacity: "500 kW",
+    metric: "Two-shift load offset",
     location: "Pen Industrial Area",
     type: "Industrial",
     tags: ["Industrial", "Solar"],
@@ -449,7 +467,9 @@ export const PROJECTS = [
     imageAlt: "Aerial photograph of an industrial-scale solar farm",
   },
   {
-    name: "25 kW Hybrid Home System",
+    name: "Hybrid Home System",
+    capacity: "25 kW",
+    metric: "Battery backup included",
     location: "Murud, Raigad",
     type: "Solar",
     tags: ["Residential", "Solar"],
@@ -458,7 +478,9 @@ export const PROJECTS = [
     imageAlt: "Solar panels with a wind turbine against a blue sky",
   },
   {
-    name: "Site Wind Assessment & 50 kW",
+    name: "Coastal Wind Installation",
+    capacity: "50 kW",
+    metric: "Seasonal wind resource",
     location: "Revdanda Coast",
     type: "Wind",
     tags: ["Wind", "Industrial"],
@@ -468,6 +490,8 @@ export const PROJECTS = [
   },
   {
     name: "Plant Electrical Upgrade",
+    capacity: "LT panel",
+    metric: "Pre-solar readiness",
     location: "Khopoli, Raigad",
     type: "Electrical",
     tags: ["Electrical", "Industrial"],
@@ -513,6 +537,14 @@ export const TESTIMONIALS = [
 ];
 
 export const FAQS = [
+  {
+    q: "How much government subsidy can I get on rooftop solar?",
+    a: "Under PM Surya Ghar: Muft Bijli Yojana, a home gets Rs 30,000 per kW for the first 2 kW and Rs 18,000 for the third, so assistance is Rs 30,000 at 1 kW, Rs 60,000 at 2 kW and Rs 78,000 at 3 kW or more. Group housing societies get Rs 18,000 per kW for common facilities. Commercial connections are not covered, though they can claim accelerated depreciation. Use the calculator above for your state and bill.",
+  },
+  {
+    q: "Who applies for the subsidy, and when do I receive it?",
+    a: "You register on the national portal with your consumer number, and we handle the technical feasibility, vendor registration, installation and inspection. Subsidy is credited directly to your bank account after the DISCOM inspects the plant and the net meter is installed — usually a few weeks after commissioning, not at the time of purchase. You pay the full amount up front and are reimbursed.",
+  },
   {
     q: "What is an on-grid solar system?",
     a: "An on-grid system is connected to the electricity supply from your DISCOM. Solar power runs your loads first during the day. Surplus units can be exported and credited through net metering where it is available. It does not usually provide backup during a power cut unless a hybrid or battery system is added.",
