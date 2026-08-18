@@ -93,6 +93,12 @@ export function Footer() {
         <p>
           © {year} {SITE.legalName}. All rights reserved.
         </p>
+        <p className="footer__credit">
+          Developed by{" "}
+          <a href="https://patilabhishek.site" target="_blank" rel="noopener noreferrer">
+            patilabhishek
+          </a>
+        </p>
       </div>
     </footer>
   );
