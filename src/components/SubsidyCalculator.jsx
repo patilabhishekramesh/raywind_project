@@ -48,7 +48,7 @@ export function SubsidyCalculator() {
   };
 
   return (
-    <section id="subsidy" className="section section--soft calc" aria-labelledby="calc-title">
+    <section id="subsidy" className="section calc" aria-labelledby="calc-title">
       <div className="wrap">
         <Reveal className="section__head section__head--center">
           <p className="kicker">Government subsidy</p>

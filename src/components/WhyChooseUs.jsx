@@ -1,7 +1,6 @@
 import { WHY_US } from "../data/content.js";
 import { Reveal } from "./Reveal.jsx";
 import { BadgeIcon, IconArrow } from "./Icons.jsx";
-import { openWhatsApp } from "../utils/whatsapp.js";
 import { asset } from "../utils/asset.js";
 
 const HIGHLIGHTS = WHY_US.slice(0, 4);
@@ -45,14 +44,10 @@ export function WhyChooseUs() {
           <div className="why__banner-body">
             <h3>Not sure what your roof can take?</h3>
             <p>Send a photo of the roof and a recent bill — we will size it and quote properly.</p>
-            <button
-              type="button"
-              className="btn btn--white"
-              onClick={() => openWhatsApp("a free solar consultation")}
-            >
+            <a className="btn btn--white" href="#contact">
               Get a free assessment
               <IconArrow />
-            </button>
+            </a>
           </div>
         </Reveal>
       </div>

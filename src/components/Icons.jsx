@@ -1,18 +1,37 @@
-const stroke = {
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 1.75,
-  strokeLinecap: "round",
-  strokeLinejoin: "round",
+import {
+  ArrowRight,
+  Building2,
+  Check,
+  ChevronDown,
+  ChevronUp,
+  Clock,
+  Home,
+  IndianRupee,
+  Mail,
+  MapPin,
+  Menu,
+  MessageCircle,
+  Minus,
+  Phone,
+  Plus,
+  Quote,
+  Search,
+  Settings,
+  Shield,
+  Star,
+  Sun,
+  Wind,
+  Wrench,
+  X,
+} from "lucide-react";
+
+const defaults = {
+  "aria-hidden": true,
+  strokeWidth: 1.85,
 };
 
 export function IconSun({ size = 24 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="4" {...stroke} />
-      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" {...stroke} />
-    </svg>
-  );
+  return <Sun size={size} {...defaults} />;
 }
 
 export function IconWhatsApp({ size = 18 }) {
@@ -31,189 +50,102 @@ export function IconWhatsApp({ size = 18 }) {
 }
 
 export function IconPhone({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M6.5 3.75h2.2l1.2 3.1-1.7 1.2a12.2 12.2 0 0 0 6.55 6.55l1.2-1.7 3.1 1.2v2.2c0 .7-.55 1.3-1.25 1.4A16.3 16.3 0 0 1 5.1 6.99c.1-.7.7-1.24 1.4-1.24Z"
-        {...stroke}
-      />
-    </svg>
-  );
+  return <Phone size={size} {...defaults} />;
 }
 
 export function IconMail({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="3" y="5" width="18" height="14" rx="2" {...stroke} />
-      <path d="m3 7 9 6 9-6" {...stroke} />
-    </svg>
-  );
+  return <Mail size={size} {...defaults} />;
 }
 
 export function IconPin({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 21s6-5.2 6-10a6 6 0 1 0-12 0c0 4.8 6 10 6 10Z" {...stroke} />
-      <circle cx="12" cy="11" r="2.5" {...stroke} />
-    </svg>
-  );
+  return <MapPin size={size} {...defaults} />;
 }
 
 export function IconClock({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="12" cy="12" r="9" {...stroke} />
-      <path d="M12 7v5l3 2" {...stroke} />
-    </svg>
-  );
+  return <Clock size={size} {...defaults} />;
 }
 
 export function IconMenu({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M4 7h16M4 12h16M4 17h16" {...stroke} />
-    </svg>
-  );
+  return <Menu size={size} {...defaults} />;
 }
 
 export function IconClose({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m6 6 12 12M18 6 6 18" {...stroke} />
-    </svg>
-  );
+  return <X size={size} {...defaults} />;
 }
 
 export function IconArrow({ size = 16 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 12h14M13 6l6 6-6 6" {...stroke} />
-    </svg>
-  );
+  return <ArrowRight size={size} {...defaults} />;
 }
 
 export function IconStar({ size = 14, filled = true }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="m12 3.5 2.4 4.9 5.4.8-3.9 3.8.9 5.3L12 16.2l-4.8 2.5.9-5.3L4.2 9.2l5.4-.8L12 3.5Z"
-        fill={filled ? "currentColor" : "none"}
-        {...stroke}
-      />
-    </svg>
+    <Star
+      size={size}
+      {...defaults}
+      fill={filled ? "currentColor" : "none"}
+      strokeWidth={filled ? 0 : 1.85}
+    />
   );
 }
 
 export function IconHome({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z" {...stroke} />
-    </svg>
-  );
+  return <Home size={size} {...defaults} />;
 }
 
 export function IconBuilding({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M4 21V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v16M14 9h6v12M8 9h.01M8 13h.01M8 17h.01" {...stroke} />
-    </svg>
-  );
+  return <Building2 size={size} {...defaults} />;
 }
 
 export function IconTool({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M14.7 6.3a4 4 0 0 0-5.66 5.66L3 18l3 3 6.04-6.04a4 4 0 0 0 5.66-5.66l-2.12 2.12-3.54-3.54 2.12-2.12Z" {...stroke} />
-    </svg>
-  );
+  return <Wrench size={size} {...defaults} />;
 }
 
 export function IconWind({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M4 8h10a3 3 0 1 0-3-3M4 16h12a3 3 0 1 1 3 3M4 12h16" {...stroke} />
-    </svg>
-  );
+  return <Wind size={size} {...defaults} />;
 }
 
 export function IconMessage({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M21 12a8 8 0 0 1-8 8H7l-4 3V12a8 8 0 0 1 8-8h4a8 8 0 0 1 8 8Z" {...stroke} />
-    </svg>
-  );
+  return <MessageCircle size={size} {...defaults} />;
 }
 
 export function IconSearch({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="11" cy="11" r="7" {...stroke} />
-      <path d="m20 20-3.5-3.5" {...stroke} />
-    </svg>
-  );
+  return <Search size={size} {...defaults} />;
 }
 
 export function IconSettings({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" {...stroke} />
-      <path
-        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1Z"
-        {...stroke}
-      />
-    </svg>
-  );
+  return <Settings size={size} {...defaults} />;
 }
 
 export function IconShield({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 3 4 6v6c0 5 3.4 9.4 8 10 4.6-.6 8-5 8-10V6l-8-3Z" {...stroke} />
-    </svg>
-  );
+  return <Shield size={size} {...defaults} />;
 }
 
 export function IconCheck({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="m5 12 5 5L20 7" {...stroke} />
-    </svg>
-  );
+  return <Check size={size} {...defaults} />;
+}
+
+export function IconChevronDown({ size = 18, className }) {
+  return <ChevronDown size={size} className={className} strokeWidth={1.85} aria-hidden="true" />;
+}
+
+export function IconChevronUp({ size = 18, className }) {
+  return <ChevronUp size={size} className={className} strokeWidth={1.85} aria-hidden="true" />;
 }
 
 export function IconPlus({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M12 5v14M5 12h14" {...stroke} />
-    </svg>
-  );
+  return <Plus size={size} {...defaults} />;
 }
 
 export function IconMinus({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M5 12h14" {...stroke} />
-    </svg>
-  );
+  return <Minus size={size} {...defaults} />;
 }
 
 export function IconRupee({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M7 4h10M7 9h10M15.5 4c0 3.5-2.4 5-5.5 5h-3l8 10" {...stroke} />
-    </svg>
-  );
+  return <IndianRupee size={size} {...defaults} />;
 }
 
 export function IconQuote({ size = 22 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M9 6c-3 1.4-4.5 3.9-4.5 7.3V18h5.4v-5.2H6.6c0-2.2.8-3.7 2.4-4.6L9 6Zm10 0c-3 1.4-4.5 3.9-4.5 7.3V18H20v-5.2h-3.4c0-2.2.8-3.7 2.4-4.6L19 6Z"
-        {...stroke}
-      />
-    </svg>
-  );
+  return <Quote size={size} {...defaults} />;
 }
 
 const BADGE_ICON_MAP = {

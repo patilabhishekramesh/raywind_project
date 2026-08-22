@@ -29,7 +29,8 @@ jobs:
 
       - run: npm run build
         env:
-          VITE_BASE: /${{ github.event.repository.name }}/
+          VITE_BASE: /
+          VITE_RECAPTCHA_SITE_KEY: ${{ secrets.VITE_RECAPTCHA_SITE_KEY }}
 
       # Requires Pages to be enabled with "GitHub Actions" as the source.
       # The default GITHUB_TOKEN cannot turn Pages on by itself.

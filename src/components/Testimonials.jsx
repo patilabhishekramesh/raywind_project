@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { TESTIMONIALS } from "../data/content.js";
 import { Reveal } from "./Reveal.jsx";
-import { IconQuote, IconStar, IconWhatsApp } from "./Icons.jsx";
-import { openWhatsApp } from "../utils/whatsapp.js";
+import { IconQuote, IconStar } from "./Icons.jsx";
 
 const initials = (name) =>
   name
@@ -43,17 +42,12 @@ export function Testimonials() {
                 <IconStar key={s} filled={s < 5} size={15} />
               ))}
             </span>
-            <span className="testimonials__count">from {TESTIMONIALS.length * 9} reviews</span>
+            <span className="testimonials__count">from clients in Alibag &amp; Raigad</span>
           </div>
 
-          <button
-            type="button"
-            className="btn btn--secondary btn--sm"
-            onClick={() => openWhatsApp("an enquiry")}
-          >
-            <IconWhatsApp />
-            Talk to a customer reference
-          </button>
+          <a className="btn btn--secondary btn--sm" href="#contact">
+            Ask about a similar project
+          </a>
         </Reveal>
 
         <Reveal className="testimonials__slider" delay={80}>

@@ -34,10 +34,13 @@ export function Footer() {
           <h2>Quick Links</h2>
           <ul>
             {NAV_LINKS.filter((l) =>
-              ["#home", "#about", "#services", "#projects", "#contact"].includes(l.href)
+              ["#about", "#services", "#projects", "#contact"].includes(l.href)
             ).map((link) => (
               <li key={link.href}>
-                <a href={link.href}>{link.label}</a>
+                <a className="footer__action" href={link.href}>
+                  {link.label}
+                  <IconArrow size={14} />
+                </a>
               </li>
             ))}
           </ul>
@@ -48,8 +51,9 @@ export function Footer() {
           <ul>
             {FOOTER_SERVICES.map((item) => (
               <li key={item.label}>
-                <button type="button" onClick={() => openWhatsApp(item.service)}>
+                <button type="button" className="footer__action" onClick={() => openWhatsApp(item.service)}>
                   {item.label}
+                  <IconArrow size={14} />
                 </button>
               </li>
             ))}

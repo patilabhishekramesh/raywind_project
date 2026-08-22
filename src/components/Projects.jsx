@@ -1,13 +1,11 @@
 import { useMemo, useState } from "react";
-import { PROJECTS } from "../data/content.js";
+import { PROJECT_FILTERS, PROJECTS } from "../data/content.js";
 import { Reveal } from "./Reveal.jsx";
 import { IconArrow, IconPin } from "./Icons.jsx";
 import { asset } from "../utils/asset.js";
-import { openWhatsApp } from "../utils/whatsapp.js";
 
 export function Projects() {
   const [filter, setFilter] = useState("All");
-  const filters = ["All", "Residential", "Commercial", "Industrial", "Solar", "Wind"];
   const items = useMemo(
     () =>
       filter === "All"
@@ -24,18 +22,14 @@ export function Projects() {
             <p className="kicker">Projects</p>
             <h2>Recent work across Maharashtra</h2>
           </div>
-          <button
-            type="button"
-            className="btn btn--secondary btn--sm"
-            onClick={() => openWhatsApp("a free consultation")}
-          >
+          <a className="btn btn--secondary btn--sm" href="#contact">
             Start a project
             <IconArrow />
-          </button>
+          </a>
         </Reveal>
 
         <div className="tabs tabs--soft" role="tablist" aria-label="Project categories">
-          {filters.map((name) => (
+          {PROJECT_FILTERS.map((name) => (
             <button
               key={name}
               type="button"
@@ -74,14 +68,10 @@ export function Projects() {
                     </span>
                     <span className="pcard__metric">{project.metric}</span>
                   </div>
-                  <button
-                    type="button"
-                    className="pcard__cta"
-                    onClick={() => openWhatsApp(`a project similar to ${project.name}`)}
-                  >
+                  <a className="card-link" href="#contact">
                     Discuss a similar project
-                    <IconArrow />
-                  </button>
+                    <IconArrow size={15} />
+                  </a>
                 </div>
               </article>
             </Reveal>

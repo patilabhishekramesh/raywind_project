@@ -46,13 +46,9 @@ export function Navbar() {
           </nav>
 
           <div className="nav__actions">
-            <button
-              type="button"
-              className="btn btn--primary btn--sm"
-              onClick={() => openWhatsApp("a renewable energy consultation")}
-            >
-              Contact Us
-            </button>
+            <a className="btn btn--primary btn--sm" href="#contact">
+              Enquire
+            </a>
             <button
               type="button"
               className="btn btn--wa btn--sm btn--icon"
@@ -81,16 +77,9 @@ export function Navbar() {
               </a>
             ))}
           </nav>
-          <button
-            type="button"
-            className="btn btn--primary"
-            onClick={() => {
-              close();
-              openWhatsApp("a renewable energy consultation");
-            }}
-          >
-            Contact Us
-          </button>
+          <a className="btn btn--primary" href="#contact" onClick={close}>
+            Send enquiry
+          </a>
           <a className="btn btn--secondary" href={SITE.phoneHref} onClick={close}>
             Call {SITE.phone}
           </a>

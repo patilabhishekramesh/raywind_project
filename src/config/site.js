@@ -7,11 +7,12 @@ export const SITE = {
   logo: "/logo.jpeg",
   description:
     "Reliable solar, wind energy, electrical installation and maintenance solutions for homes, businesses and industries across Alibag and Maharashtra.",
-  url: "https://raywindpowertech.in",
+  url: "https://raywindsolution.com",
+  domain: "raywindsolution.com",
   whatsappNumber: "917066569822",
   phone: "+91 70665 69822",
   phoneHref: "tel:+917066569822",
-  email: "hello@raywindpowertech.in",
+  email: "hello@raywindsolution.com",
   address: "Shop No. 12, Market Yard Road, Alibag, Raigad, Maharashtra 402201",
   mapQuery: "Alibag, Raigad, Maharashtra",
   hours: "Monday – Saturday, 9:30 AM – 6:30 PM",
@@ -26,7 +27,6 @@ export const SITE = {
 };
 
 export const NAV_LINKS = [
-  { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Subsidy", href: "#subsidy" },

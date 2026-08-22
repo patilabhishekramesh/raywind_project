@@ -317,6 +317,7 @@ export const SOLAR_TYPES = [
     id: "on-grid",
     title: "On-Grid Solar",
     serviceTitle: "On-Grid Solar",
+    tagline: "Lower bills while staying connected to the grid",
     image: "/images/rooftop.jpg",
     imageAlt: "On-grid solar panels covering a commercial rooftop",
     summary:
@@ -328,6 +329,7 @@ export const SOLAR_TYPES = [
     id: "off-grid",
     title: "Off-Grid Solar",
     serviceTitle: "Off-Grid Solar",
+    tagline: "Standalone power with battery storage",
     image: "/images/panels.jpg",
     imageAlt: "Off-grid solar arrays in an open field",
     summary:
@@ -339,6 +341,7 @@ export const SOLAR_TYPES = [
     id: "hybrid",
     title: "Hybrid Solar",
     serviceTitle: "Hybrid Solar",
+    tagline: "Solar, grid and battery in one system",
     image: "/images/commercial.jpg",
     imageAlt: "Hybrid solar and wind installation against a clear sky",
     summary:
@@ -583,7 +586,7 @@ export const FAQS = [
   },
   {
     q: "How can I request a quotation?",
-    a: "Use WhatsApp for the fastest response, call us, or send the contact form. Share your location, monthly bill or sanctioned load, and whether the site is a home, shop or industry. We revert with questions if anything is missing, then a quotation.",
+    a: "Send the enquiry form on this website, WhatsApp us, or call. Share your location, monthly bill or sanctioned load, and whether the site is a home, shop or industry. We revert with questions if anything is missing, then a quotation.",
   },
 ];
 
@@ -596,4 +599,5 @@ export const FORM_SERVICES = [
   "Solar Maintenance",
   "Electrical Services",
   "Energy Audit / Other",
+  "Not sure",
 ];

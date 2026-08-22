@@ -4,7 +4,7 @@ import { WorkflowIcon } from "./Icons.jsx";
 
 export function Process() {
   return (
-    <section id="process" className="section process" aria-labelledby="process-title">
+    <section id="process" className="section section--soft process" aria-labelledby="process-title">
       <div className="wrap">
         <Reveal className="section__head section__head--center">
           <p className="kicker">How it works</p>

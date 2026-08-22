@@ -99,13 +99,15 @@ export function Preloader({ onComplete }) {
           {failed && <span className="preloader__spinner" aria-hidden="true" />}
         </div>
 
-        <img
-          src={asset(SITE.logo)}
-          alt={SITE.name}
-          className="preloader__logo"
-          width={260}
-          height={78}
-        />
+        <div className="preloader__logo-wrap">
+          <img
+            src={asset(SITE.logo)}
+            alt={SITE.name}
+            className="preloader__logo"
+            width={260}
+            height={78}
+          />
+        </div>
 
         <div className="preloader__progress">
           <div className="preloader__track" aria-hidden="true">

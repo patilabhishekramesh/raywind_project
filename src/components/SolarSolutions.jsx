@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { SOLAR_TYPES } from "../data/content.js";
-import { openWhatsApp } from "../utils/whatsapp.js";
 import { Reveal } from "./Reveal.jsx";
 import { IconArrow } from "./Icons.jsx";
 import { asset } from "../utils/asset.js";
@@ -12,7 +11,7 @@ export function SolarSolutions() {
   return (
     <section id="solutions" className="section solutions">
       <div className="wrap">
-        <Reveal className="section__head">
+        <Reveal className="section__head solutions__head">
           <p className="kicker">Solutions</p>
           <h2>Find the right system</h2>
           <p className="lede">
@@ -21,24 +20,39 @@ export function SolarSolutions() {
           </p>
         </Reveal>
 
-        <Reveal className="sol">
-          <div className="sol__picks" role="tablist" aria-label="Solar system types">
-            {SOLAR_TYPES.map((type) => (
-              <button
-                key={type.id}
-                type="button"
-                role="tab"
-                aria-selected={type.id === activeId}
-                className={type.id === activeId ? "is-active" : ""}
-                onClick={() => setActiveId(type.id)}
-              >
-                {type.title}
-              </button>
-            ))}
+        <Reveal className="sol-layout" delay={60}>
+          <div className="sol-nav" role="tablist" aria-label="Solar system types">
+            {SOLAR_TYPES.map((type, index) => {
+              const isActive = type.id === activeId;
+              return (
+                <button
+                  key={type.id}
+                  id={`sol-tab-${type.id}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`sol-nav__item${isActive ? " is-active" : ""}`}
+                  onClick={() => setActiveId(type.id)}
+                >
+                  <span className="sol-nav__num" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="sol-nav__text">
+                    <strong>{type.title}</strong>
+                    <small>{type.tagline}</small>
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
-          <div className="sol__panel">
-            <div className="sol__image">
+          <div
+            className="sol-stage"
+            role="tabpanel"
+            aria-labelledby={`sol-tab-${active.id}`}
+            id={`sol-panel-${active.id}`}
+          >
+            <div className="sol-stage__visual" key={active.id}>
               <img
                 src={asset(active.image)}
                 alt={active.imageAlt}
@@ -47,11 +61,13 @@ export function SolarSolutions() {
                 loading="lazy"
               />
             </div>
-            <div className="sol__info">
+
+            <div className="sol-stage__body">
               <h3>{active.title}</h3>
-              <p>{active.summary}</p>
-              <div className="sol__cols">
-                <div>
+              <p className="sol-stage__summary">{active.summary}</p>
+
+              <div className="sol-stage__facts">
+                <div className="sol-fact">
                   <h4>Best for</h4>
                   <ul>
                     {active.bestFor.map((item) => (
@@ -59,7 +75,7 @@ export function SolarSolutions() {
                     ))}
                   </ul>
                 </div>
-                <div>
+                <div className="sol-fact">
                   <h4>Benefits</h4>
                   <ul>
                     {active.benefits.map((item) => (
@@ -68,14 +84,11 @@ export function SolarSolutions() {
                   </ul>
                 </div>
               </div>
-              <button
-                type="button"
-                className="btn btn--primary"
-                onClick={() => openWhatsApp(active.serviceTitle)}
-              >
+
+              <a className="card-link sol-stage__link" href="#contact">
                 Enquire about {active.title}
-                <IconArrow />
-              </button>
+                <IconArrow size={15} />
+              </a>
             </div>
           </div>
         </Reveal>

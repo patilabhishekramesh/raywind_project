@@ -1,8 +1,12 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig, loadEnv } from "vite";
+import react from "@vitejs/plugin-react";
+import { enquiryApiPlugin } from "./server/vite-plugin.js";
 
-// https://vite.dev/config/
-export default defineConfig({
-  base: process.env.VITE_BASE ?? '/',
-  plugins: [react()],
-})
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+
+  return {
+    base: process.env.VITE_BASE ?? "/",
+    plugins: [react(), enquiryApiPlugin(env)],
+  };
+});

@@ -15,7 +15,7 @@ export function useInView() {
           observer.disconnect();
         }
       },
-      { threshold: 0.14, rootMargin: "0px 0px -6% 0px" }
+      { threshold: 0.12, rootMargin: "0px 0px -4% 0px" }
     );
 
     observer.observe(el);

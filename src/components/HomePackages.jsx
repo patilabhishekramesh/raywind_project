@@ -26,7 +26,7 @@ export function HomePackages() {
   };
 
   return (
-    <section id="packages" className="section packages" aria-labelledby="packages-title">
+    <section id="packages" className="section section--soft packages" aria-labelledby="packages-title">
       <div className="wrap">
         <Reveal className="section__head section__head--center">
           <p className="kicker">Home packages</p>
@@ -101,7 +101,7 @@ export function HomePackages() {
             Roof, bill or state different? Size it yourself and see the subsidy that applies to
             you.
           </p>
-          <a className="btn btn--ghost btn--sm" href="#subsidy">
+          <a className="btn btn--secondary btn--sm" href="#subsidy">
             Open the calculator
             <IconArrow />
           </a>

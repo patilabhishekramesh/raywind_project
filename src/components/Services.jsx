@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FEATURED_SERVICES, SERVICE_CATEGORIES, SERVICES } from "../data/content.js";
 import { ServiceCard } from "./ServiceCard.jsx";
 import { Reveal } from "./Reveal.jsx";
-import { openWhatsApp } from "../utils/whatsapp.js";
 import { FeaturedIcon, IconArrow } from "./Icons.jsx";
 
 export function Services() {
@@ -29,10 +28,10 @@ export function Services() {
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <button type="button" className="fcard__link" onClick={() => openWhatsApp(item.service)}>
-                  Enquire
-                  <IconArrow />
-                </button>
+                <a className="card-link" href="#contact">
+                  Learn more
+                  <IconArrow size={15} />
+                </a>
               </article>
             </Reveal>
           ))}

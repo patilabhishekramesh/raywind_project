@@ -9,24 +9,32 @@ export function setScrollLocked(locked) {
   else instance.start();
 }
 
+export function getLenis() {
+  return instance;
+}
+
+export function scrollToTop() {
+  if (instance) {
+    instance.scrollTo(0, { duration: 1.05, easing: (t) => 1 - (1 - t) ** 3 });
+    return;
+  }
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 export function useSmoothScroll(enabled = true) {
   useEffect(() => {
     if (!enabled) return undefined;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
 
     const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t) => Math.min(1, 1.001 - 2 ** (-10 * t)),
+      lerp: 0.09,
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.6,
+      wheelMultiplier: 0.95,
+      touchMultiplier: 1.1,
+      allowNestedScroll: true,
+      autoRaf: true,
     });
     instance = lenis;
-
-    let frame = requestAnimationFrame(function raf(time) {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    });
 
     const onAnchorClick = (event) => {
       if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey) return;
@@ -43,14 +51,17 @@ export function useSmoothScroll(enabled = true) {
       event.preventDefault();
       const header = document.querySelector(".site-header");
       const offset = header ? header.offsetHeight + 12 : 0;
-      lenis.scrollTo(target, { offset: -offset, duration: 1.3 });
+      lenis.scrollTo(target, {
+        offset: -offset,
+        duration: 1.05,
+        easing: (t) => 1 - (1 - t) ** 3,
+      });
     };
 
     document.addEventListener("click", onAnchorClick);
 
     return () => {
       document.removeEventListener("click", onAnchorClick);
-      cancelAnimationFrame(frame);
       lenis.destroy();
       instance = null;
     };
