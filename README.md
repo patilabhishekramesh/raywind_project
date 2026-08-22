@@ -42,6 +42,19 @@ Copy `.env.example` to `.env` and set:
 4. Point the domain to your host and run **`npm start`** (Node required — static hosting alone will not send enquiry emails).
 5. In GitHub Actions, add repository secret **`VITE_RECAPTCHA_SITE_KEY`** if you deploy via Pages.
 
+## Deploy on Vercel (recommended)
+
+Vercel serves the static site **and** the enquiry API (`api/enquiry.js`).
+
+1. Import the repo in [Vercel](https://vercel.com) — `vercel.json` sets build output to `dist`.
+2. In **Project → Settings → Environment Variables**, add all server vars from `.env.example`:
+   - `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`
+   - `MAIL_TO`, `MAIL_FROM_NAME`, `SITE_URL`
+   - `RECAPTCHA_SECRET_KEY`
+   - `VITE_RECAPTCHA_SITE_KEY` (needed at **build** time — enable for Production)
+3. Redeploy after saving env vars.
+4. In [Google reCAPTCHA admin](https://www.google.com/recaptcha/admin), add your Vercel URL (e.g. `raywind-project.vercel.app`) and `raywindsolution.com`.
+
 ## GitHub Pages (static only)
 
 Pushes to `main` can publish the frontend via `.github/workflows/deploy.yml`. **Enquiry email will not work on Pages alone** unless you host the API separately — use `npm start` on a Node server for the full site.
@@ -58,7 +71,8 @@ Logo: `public/logo.jpeg` · Social preview: `public/og.jpg`
 
 ```
 public/          static assets, robots.txt, sitemap.xml
-server/          enquiry API, mail, production server
+api/             Vercel serverless route for enquiry
+server/          enquiry handler, mail, production server
 src/components/  page sections and UI
 src/config/      company details and nav
 src/data/        services, projects, FAQs

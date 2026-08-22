@@ -61,6 +61,22 @@ function readJson(req, limit = 16_384) {
   });
 }
 
+async function getJsonPayload(req) {
+  if (req.body !== undefined && req.body !== null) {
+    if (typeof req.body === "object" && !Buffer.isBuffer(req.body)) {
+      return req.body;
+    }
+    if (typeof req.body === "string") {
+      try {
+        return JSON.parse(req.body);
+      } catch {
+        throw new Error("invalid_json");
+      }
+    }
+  }
+  return readJson(req);
+}
+
 export async function handleEnquiry(req, res, env) {
   if (req.method === "OPTIONS") {
     res.statusCode = 204;
@@ -83,7 +99,7 @@ export async function handleEnquiry(req, res, env) {
 
   let payload;
   try {
-    payload = await readJson(req);
+    payload = await getJsonPayload(req);
   } catch (err) {
     const tooLarge = err instanceof Error && err.message === "payload_too_large";
     sendJson(res, tooLarge ? 413 : 400, {
